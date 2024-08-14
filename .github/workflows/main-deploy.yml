@@ -38,7 +38,7 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: Initialize Terraform
-        run: terraform -chdir=infrastructure init -backend-config=infrastructure/env/backend_s3_v1.hcl
+        run: terraform -chdir=infrastructure init -backend-config="env/backend_s3_v1.hcl"
 
       - name: Validate Terraform
         run: terraform -chdir=infrastructure validate

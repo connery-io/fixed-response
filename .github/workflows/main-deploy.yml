@@ -14,8 +14,22 @@ env:
   VERSION_TAG: v1
 
 jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm run test
+
   deploy:
     name: Deploy
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

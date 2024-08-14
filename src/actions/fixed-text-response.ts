@@ -31,6 +31,11 @@ export default actionDefinition;
 
 export async function handler({ input }: ActionContext): Promise<OutputObject> {
   return {
-    textResponse: input.textToReturn,
+    textResponse: decodeNewlines(input.textToReturn),
   };
+}
+
+// Decodes newlines as they are encoded in the input string
+function decodeNewlines(input: string): string {
+  return input.replace(/\\n/g, '\n');
 }

@@ -89,11 +89,6 @@ module "api_gateway" {
     }
   }
 
-  stage_access_log_settings = {
-    create_log_group = false # we don't want to keep logs
-    destination_arn = ""
-  }
-
   tags = {
     repository_name = var.repository_name
     version_tag     = var.version_tag

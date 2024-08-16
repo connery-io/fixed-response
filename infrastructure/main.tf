@@ -33,7 +33,7 @@ module "aws_lambda" {
   publish                           = true
   memory_size                       = var.memory_size
   timeout                           = var.timeout
-  cloudwatch_logs_retention_in_days = null # we don't want to keep logs
+  cloudwatch_logs_retention_in_days = 1
 
   environment_variables = {
     HOSTING_MODE = "AWS_LAMBDA"

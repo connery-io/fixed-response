@@ -91,6 +91,7 @@ module "api_gateway" {
 
   stage_access_log_settings = {
     create_log_group = false # we don't want to keep logs
+    destination_arn = ""
   }
 
   tags = {

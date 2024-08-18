@@ -9,10 +9,6 @@ on:
 concurrency:
   group: main-deploy-production
 
-env:
-  REPOSITORY_NAME: fixed-response
-  VERSION_TAG: v1
-
 jobs:
   test:
     name: Run tests
@@ -58,7 +54,7 @@ jobs:
         run: terraform -chdir=infrastructure validate
 
       - name: Plan Terraform
-        run: terraform -chdir=infrastructure plan -var="repository_name=${{ env.REPOSITORY_NAME }}" -var="version_tag=${{ env.VERSION_TAG }}"
+        run: terraform -chdir=infrastructure plan
 
       - name: Apply Terraform
-        run: terraform -chdir=infrastructure apply -auto-approve -var="repository_name=${{ env.REPOSITORY_NAME }}" -var="version_tag=${{ env.VERSION_TAG }}"
+        run: terraform -chdir=infrastructure apply -auto-approve
